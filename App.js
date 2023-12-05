@@ -57,7 +57,7 @@ const App = () => {
       distilled = {
         latitude: locx.coords.latitude,
         longitude: locx.coords.longitude,
-        altitude: locx.coords.altitude,
+        altitude: locx.coords.ellipsoidal_altitude,
       };
 
       setLocation(distilled);
@@ -117,7 +117,8 @@ const App = () => {
       mode: 'same-origin',
       body: JSON.stringify({
         ...(location? location : {}),
-        username: username
+        id: username,
+        version: "1.0.0"
       }),
       headers: {
         'Accept':       'application/json',
